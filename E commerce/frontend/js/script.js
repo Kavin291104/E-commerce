@@ -8,7 +8,7 @@ let allProducts = []
 
 async function loadProducts(){
 
-const res = await fetch("http://localhost:5000/api/products")
+const res = await fetch("https://e-commerce-qrch.onrender.com/")
 
 allProducts = await res.json()
 
@@ -381,7 +381,7 @@ items: orderItems
 
 try{
 
-await fetch("http://localhost:5000/api/orders",{
+await fetch("https://e-commerce-qrch.onrender.com/",{
 
 method:"POST",
 
