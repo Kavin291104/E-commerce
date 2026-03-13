@@ -11,7 +11,7 @@ container.innerHTML = "<p style='text-align:center'>User not logged in</p>"
 return
 }
 
-let res = await fetch("https://e-commerce-qrch.onrender.com/api/orders/" + user.email)
+let res = await fetch("https://e-commerce-qrch.onrender.com/" + user.email)
 
 let orders = await res.json()
 
@@ -98,7 +98,7 @@ return
 
 try{
 
-await fetch(`https://e-commerce-qrch.onrender.com/api/orders/cancel/${orderId}`,{
+await fetch(`https://e-commerce-qrch.onrender.com/${orderId}`,{
 method:"DELETE"
 })
 
