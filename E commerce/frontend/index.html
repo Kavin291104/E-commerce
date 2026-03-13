@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Shop</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body onload="checkAuth()">
+
+<script src="js/auth.js"></script>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+<h1 class="logo">My Shop</h1>
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search products..."
+onkeyup="liveSearch()"
+class="search-bar"
+>
+
+<div class="nav-buttons">
+
+<!-- DARK MODE TOGGLE -->
+
+<div class="theme-toggle">
+
+<input type="checkbox" id="themeSwitch">
+
+<label for="themeSwitch"></label>
+
+</div>
+
+<button class="orders-btn" onclick="window.location='orders.html'">
+📦 Orders
+</button>
+
+<!-- CART BUTTON -->
+
+<button class="cart-btn" onclick="toggleCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</button>
+
+<!-- LOGOUT BUTTON -->
+
+<button class="logout-btn" onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</header>
+
+
+
+<!-- CATEGORY FILTER -->
+
+<div class="filters">
+
+<button onclick="filterCategory('all')">All</button>
+
+<button onclick="filterCategory('electronics')">Electronics</button>
+
+<button onclick="filterCategory('fashion')">Fashion</button>
+
+<button onclick="filterCategory('accessories')">Accessories</button>
+
+</div>
+
+
+
+<!-- PRODUCT GRID -->
+
+<div class="products" id="productsContainer"></div>
+
+
+
+<!-- PRODUCT POPUP -->
+
+<div id="productPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close-btn" onclick="closePopup()">×</span>
+
+<img id="popupImage" class="popup-img">
+
+<h2 id="popupTitle"></h2>
+
+<p class="price" id="popupPrice"></p>
+
+<p id="popupDesc"></p>
+
+<p id="popupCategory"></p>
+
+<p id="popupRating"></p>
+
+<p id="popupStock"></p>
+
+<button id="popupCartBtn" class="popup-cart-btn">
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- CART OVERLAY -->
+
+<div id="overlay" onclick="toggleCart()"></div>
+
+
+
+<!-- CART DRAWER -->
+
+<div id="cartDrawer" class="cart-drawer">
+
+<h2>Your Cart</h2>
+
+<div class="cart-content">
+
+<ul id="cartItems"></ul>
+
+</div>
+
+<div class="cart-footer">
+
+<p class="cart-total">
+Total: ₹<span id="total">0</span>
+</p>
+
+<button class="checkout-btn" onclick="openCheckout()">
+Proceed to Payment
+</button>
+
+<button class="close-cart" onclick="toggleCart()">
+Close
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- CHECKOUT OVERLAY -->
+
+<div id="checkoutOverlay" onclick="closeCheckout()"></div>
+
+
+
+<!-- CHECKOUT MODAL -->
+
+<div id="checkoutModal" class="checkout-modal">
+
+<div class="checkout-box">
+
+<h2>Checkout</h2>
+
+<h3>Order Summary</h3>
+
+<ul id="orderSummary"></ul>
+
+<input type="text" id="custName" placeholder="Full Name">
+
+<input type="text" id="custAddress" placeholder="Delivery Address">
+
+<h3>Payment Method: UPI</h3>
+
+<div class="upi-box">
+
+<p>Scan this QR to Pay</p>
+
+<img id="upiQR" width="220">
+
+<p class="upi-id">
+<b>UPI ID:</b> kavin29114@oksbi
+</p>
+
+</div>
+
+
+<!-- UPDATED BUTTONS -->
+
+<div class="checkout-buttons">
+
+<button class="pay-btn" onclick="confirmOrder()">
+Place order
+</button>
+
+<button class="cancel-btn" onclick="closeCheckout()">
+Cancel
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PAYMENT PROCESSING -->
+
+<div id="paymentLoading" class="payment-loading">
+
+<div class="loader"></div>
+
+<p>Processing Payment...</p>
+
+</div>
+
+
+
+<!-- ORDER SUCCESS -->
+
+<div id="orderSuccess" class="success-box">
+
+<h2>Order Placed Successfully</h2>
+
+<p id="orderIdText"></p>
+
+<button onclick="closeSuccess()">
+Continue Shopping
+</button>
+
+</div>
+
+
+
+<script src="js/script.js"></script>
+
+</div>
+
+</div>
+</body>
+
+</html>
